@@ -27,5 +27,4 @@ Main website page: https://jenishpr100.github.io/Loopconomy/main/MainPage
 ---
 
 ## 💻 Installation
-
-[Discord install link]
+- https://discord.com/oauth2/authorize?client_id=1483310425050320917&permissions=0&integration_type=0&scope=bot+applications.commands
