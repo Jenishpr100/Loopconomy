@@ -31,5 +31,25 @@ The bot allows users to "bet" virtual currency and see outcomes, **all entirely 
 
 ---
 
+## 🧩 Games!
+
+- Coin Flip
+- Mega Slots
+- Blackjack
+- Poker
+
+Todo: 
+- Keno
+- Roulette
+- Baccarat
+- Craps
+- Bingo
+- Scratch Cards (maybe in person with a Code for the HTML Site that then somehow redeems it?)
+- Wheel of Fortune?
+- Russian Roulette (but you get muted for n time)
+- Snake.
+
+---
+
 ## 💻 Installation
 - [Server install link](https://discord.com/oauth2/authorize?client_id=1483310425050320917&permissions=0&integration_type=0&scope=bot+applications.commands)
