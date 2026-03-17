@@ -48,6 +48,7 @@ Todo:
 - Wheel of Fortune?
 - Russian Roulette (but you get muted for n time)
 - Snake.
+- Rugplay Integration and Rugplay Plus Integration! (somehow using the SDK?)
 
 ---
 
