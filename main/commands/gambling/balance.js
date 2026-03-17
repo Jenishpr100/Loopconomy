@@ -22,7 +22,7 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setTitle("💰 Your Balance")
-            .setDescription(`You currently have **$${data[id].money}**.`)
+            .setDescription(`You currently have **$${data[id].money.toLocaleString()}**.`)
             .setColor("Green")
             .setThumbnail(interaction.user.displayAvatarURL({ dynamic: true }))
             .setFooter({ text: `Keep begging to earn more!` });
