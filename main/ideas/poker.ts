@@ -1,3 +1,4 @@
+//Bro really stole my code
 import { Message, User, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType, EmbedBuilder } from 'discord.js';
 
 export const init = async (api: any) => {
