@@ -3,103 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loopconomy Bot</title>
+<title>Loopconomy | EUMI Kernel</title>
 
 <style>
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f8fafc;
+    --accent: #3b82f6;
+    --grad: linear-gradient(135deg, #2563eb, #9333ea);
+}
+
+[data-theme="night"] {
+    --bg: #020617;
+    --card: #0f172a;
+    --text: #e2e8f0;
+    --accent: #6366f1;
+    --grad: linear-gradient(135deg, #1e1b4b, #4338ca);
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: white;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Toggle Switch */
+.theme-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#theme-toggle {
+    padding: 10px 15px;
+    background: var(--card);
+    border: 1px solid var(--accent);
+    color: var(--text);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
 }
 
 header {
-    padding: 40px;
-    background: linear-gradient(135deg, #2563eb, #9333ea);
+    padding: 60px 40px;
+    background: var(--grad);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.version-badge {
+    background: rgba(0,0,0,0.2);
+    padding: 5px 12px;
+    border-radius: 10px;
+    font-family: monospace;
+    font-size: 0.9rem;
 }
 
 .container {
     padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .card {
-    background: #1e293b;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 600px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    background: var(--card);
+    padding: 25px;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.05);
+    text-align: left;
+}
+
+.card h2 {
+    margin-top: 0;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.feature-list li::before {
+    content: "> ";
+    color: var(--accent);
+}
+
+.btn-group {
+    text-align: center;
+    margin-top: 20px;
 }
 
 button {
-    padding: 12px 20px;
-    margin: 10px;
+    padding: 14px 24px;
+    margin: 8px;
     border: none;
-    border-radius: 10px;
-    background: #3b82f6;
+    border-radius: 12px;
+    background: var(--accent);
     color: white;
     cursor: pointer;
     font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s, background 0.2s;
 }
 
 button:hover {
     background: #2563eb;
+    transform: translateY(-2px);
+}
+
+.footer {
+    padding: 40px;
+    font-size: 0.8rem;
+    opacity: 0.6;
 }
 </style>
 </head>
 
 <body>
 
+<div class="theme-switch">
+    <button id="theme-toggle" onclick="toggleTheme()">🌙 Switch Mode</button>
+</div>
+
 <header>
     <h1>🎰 Loopconomy</h1>
-    <p>A fake economy & gambling bot</p>
+    <p>Unified "Firmware" Modification Interface (EUMI)</p>
+    <span class="version-badge">v1.0.0-2b00 [KERNEL v2.5]</span>
 </header>
 
 <div class="container">
 
     <div class="card">
-        <h2>📖 About the Bot</h2>
+        <h2>📂 System Profile</h2>
         <p>
-            Loopconomy is a Discord bot designed for learning JavaScript.
-            It simulates a fake economy system with commands like betting,
-            working, and earning virtual currency.
+            Loopconomy is a modular Discord Kernel designed for educational exploration of <b>JavaScript</b>, <b>Python</b>, and <b>PostgreSQL</b>.
         </p>
         <p>
-            This bot is strictly for educational, purposes NO real money.
+            The bot features a multi-tiered trust system (Lvl 1-5) that allows for safe, sandboxed execution of community-developed addons.
         </p>
     </div>
 
     <div class="card">
-        <h2>⚡ Features</h2>
-        <ul style="list-style:none; padding:0;">
-            <li>💰 Virtual currency system</li>
-            <li>🎲 Fake gambling commands</li>
-            <li>📊 Economy tracking</li>
-            <li>🛠 Built with JavaScript, Python</li>
+        <h2>🛠 Active Modules</h2>
+        <ul class="feature-list">
+            <li>Economy & Check-in System</li>
+            <li>PostgreSQL Currency Persistence</li>
+            <li>Multi-Deck 2-Shoe System</li>
+            <li>EUMI Hot-Reload Engine</li>
+            <li>Anti-Soviet Pipebomb Logic</li>
+            <li>FileSystem Note Encryption</li>
         </ul>
     </div>
 
     <div class="card">
-        <h2>🔗 Links</h2>
-        <button onclick="openRepo()">View GitHub</button>
-        <button onclick="inviteBot()">Invite Bot</button>
+        <h2>🎲 Deployed Games</h2>
+        <ul class="feature-list">
+            <li>High-Stakes Poker (NLHE, PLO, STUD)</li>
+            <li>Blackjack (Casino Pro-Rules)</li>
+            <li>Mega Slots (Class-based Multipliers)</li>
+            <li>Rigged Coin Flip (10% Variance)</li>
+            <li>Russian Roulette (Mute Penalty) [WIP]</li>
+        </ul>
+    </div>
+
+    <div class="card" style="max-width: 940px;">
+        <h2>🔗 Access Terminal</h2>
+        <p>Connect to the repository to develop your own EUMI Addons or invite the instance to your testing environment.</p>
+        <div class="btn-group">
+            <button onclick="openRepo()">💻 Source Code (GitHub)</button>
+            <button onclick="inviteBot()">🚀 Authorize Instance</button>
+        </div>
     </div>
 
 </div>
 
+<div class="footer">
+    &copy; 2026 Jenish. Strictly for educational purposes. No real money involved.
+</div>
+
 <script>
+function toggleTheme() {
+    const body = document.body;
+    const btn = document.getElementById('theme-toggle');
+    if (body.getAttribute('data-theme') === 'night') {
+        body.removeAttribute('data-theme');
+        btn.innerHTML = "🌙 Switch to Night";
+    } else {
+        body.setAttribute('data-theme', 'night');
+        btn.innerHTML = "☀️ Switch to Dark";
+    }
+}
+
 function openRepo() {
     window.open("https://github.com/Jenishpr100/Loopconomy", "_blank");
 }
 
 function inviteBot() {
-    
-    window.open("https://discord.com/oauth2/authorize?client_id=1483310425050320917&permissions=0&integration_type=1&scope=bot+applications.commands", "_blank");
+    window.open("https://discord.com/oauth2/authorize?client_id=1483310425050320917&permissions=0&integration_type=0&scope=bot+applications.commands", "_blank");
 }
 </script>
 
