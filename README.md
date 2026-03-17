@@ -1,6 +1,6 @@
 # Loopconomy, v1.0.0
 
-> **Disclaimer:** This bot is **NOT for educational purposes only**. It does **involve real money**, gambling, or encourage gambling in real life. 
+> **Disclaimer:** This bot is **for educational purposes only**. It does **NOT involve real money**, gambling, or encourage gambling in real life. 
 ---
 
 ## Overview
