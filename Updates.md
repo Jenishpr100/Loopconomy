@@ -12,7 +12,7 @@ Features:
   
 ---
 
-## Beta 1.1 Quick Update
+## Beta 1.1 Quick Patch v1.0.0-1b01
 I added the Kernel!
 - It works I think
 - Typescript Support
@@ -24,9 +24,16 @@ I added the pipebomb command?
 also I didn't see any Mute Command so IDK.
 I also added a auto-update in the repo.
 > Become a Femboy
--- Joseph Stalin 
+> - Joseph Stalin, 2026
 
 ---
 
-# Beta 2 | v1.0.0
-[someday]
+# Beta 2 | v1.0.0-2b00
+We finally have games lol.
+I did most of the work.
+Games:
+- Coin Toss
+- Mega Slots
+- Blackjack
+- Poker
+II also implemented a better kernel.
