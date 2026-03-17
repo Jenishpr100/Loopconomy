@@ -5,7 +5,7 @@ const { Routes } = require('discord-api-types/v10');
 
 
 const token = "Token";
-const CLIENT_ID = "ID";
+const CLIENT_ID = "1483310425050320917"; // safe...
 
 const cln = new Client({
     intents: [
