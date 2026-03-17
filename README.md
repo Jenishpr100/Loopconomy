@@ -15,6 +15,8 @@ This is a fake gambling bot built with **JavaScript** and **Python** to help pra
 
 The bot allows users to "bet" virtual currency and see outcomes, **all entirely fake**. Perfect for experimenting without real-world risks.
 
+Main website page: https://jenishpr100.github.io/Loopconomy/main/MainPage
+
 ---
 
 ## 🛠 Features
