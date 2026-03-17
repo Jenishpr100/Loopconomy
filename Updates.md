@@ -9,7 +9,24 @@ Features:
      - Not practical
 2) Made the /mute [user][time] command
    - All it does is mute the user but its something.
+  
+---
 
+## Beta 1.1 Quick Update
+I added the Kernel!
+- It works I think
+- Typescript Support
+TODO:
+- WASM
+- Python
+uhhh...
+I added the pipebomb command?
+also I didn't see any Mute Command so IDK.
+I also added a auto-update in the repo.
+> Become a Femboy
+-- Joseph Stalin 
+
+---
 
 # Beta 2 | v1.0.0
 [someday]
