@@ -3,7 +3,11 @@
 > This is the very begening of the project so don't expect so much.
 
 Features:  
-1) `/balance @user` - Ablity to check someones balance.
-2) `/leaderboard` - Check the currect top 50 people with the highest balance, 10 on each embed page.
-3) `/coinflip [amount]` - 50% chance to loose or gain money.
+1) Works!
+     > As in getting started
+     > Made the bot saved simple messages and react / send messages
+     > Not practical
 
+# Beta 2 | v1.0.0
+
+sometimes
