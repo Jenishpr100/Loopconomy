@@ -26,6 +26,9 @@ I also added a auto-update in the repo.
 > Become a Femboy
 > - Joseph Stalin, 2026
 
+Eden
+> Yay!
+
 ---
 
 # Beta 2 | v1.0.0-2b00
@@ -36,4 +39,11 @@ Games:
 - Mega Slots
 - Blackjack
 - Poker
-II also implemented a better kernel.
+I also implemented a better kernel.
+
+I'm not using UTC Time.
+
+Eden
+> Yay!
+
+---
