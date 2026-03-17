@@ -206,6 +206,36 @@ button:hover {
     &copy; 2026 Jenish. Strictly for educational purposes. No real money involved.
 </div>
 
+<div class="card" id="admin-card" style="display: none; border: 1px solid #ef4444;">
+    <h2>📡 Mobile Host Terminal</h2>
+    <div id="status-grid" style="display: grid; grid-template-columns: 1-1; gap: 10px; font-family: monospace;">
+        <div>CPU Temp: <span id="cpu-temp">--</span>°C</div>
+        <div>RAM Use: <span id="ram-usage">--</span>MB</div>
+        <div>Rugplay Ping: <span id="rp-ping">--</span>ms</div>
+        <div>Uptime: <span id="bot-uptime">--</span></div>
+    </div>
+</div>
+
+<script>
+// Simple logic to show the card if a secret 'admin' URL parameter exists
+if(window.location.search.includes('admin=true')) {
+    document.getElementById('admin-card').style.display = 'block';
+    
+    // Theoretical fetch from your bot's Cloudflare-exposed API
+    setInterval(async () => {
+        try {
+            const res = await fetch('/api/status');
+            const data = await res.json();
+            document.getElementById('cpu-temp').innerText = data.temp;
+            document.getElementById('ram-usage').innerText = data.ram;
+            document.getElementById('rp-ping').innerText = data.ping;
+            document.getElementById('bot-uptime').innerText = data.uptime;
+        } catch(e) { /* Bot is likely offline */ }
+    }, 5000);
+}
+</script>
+    
+
 <script>
 function toggleTheme() {
     const body = document.body;
