@@ -1,36 +1,37 @@
-const {Client,  IntentsBitField} = require('discord.js');
+const { Client, IntentsBitField } = require('discord.js');
 
 const cln = new Client({
-
     intents: [
-        IntentsBitField.Flags.Guilds, IntentsBitField.Flags.GuildMembers, IntentsBitField.Flags.GuildMessages, IntentsBitField.Flags.MessageContent, 
-        ]
-})
+        IntentsBitField.Flags.Guilds, 
+        IntentsBitField.Flags.GuildMembers, 
+        IntentsBitField.Flags.GuildMessages, 
+        IntentsBitField.Flags.MessageContent, 
+    ]
+});
 
-
-cln.on("clientReady", (c) => {
-    console.log(`Logged in as ${c.user.tag}`) });
+// FIXED: Event name is 'ready'
+cln.on("ready", (c) => {
+    console.log(`✅ Logged in as ${c.user.tag}`);
+});
 
 cln.on("messageCreate", (msg) => {
-
     if (msg.author.bot) return;
 
-    console.log(`${msg.author.username}: ${msg.content}`);
+    const content = msg.content.toLowerCase();
 
-    if (msg.content.toLowerCase().includes('anyways')) {
+    if (content.includes('anyways')) {
+        const isExcludedUser = msg.author.username === "lyrics_loop" || msg.author.username === "jkid88";
+        const containsSpecificPhrase = content.includes('god is dead');
 
-        if (msg.author.username !== "lyrics_loop" || msg.content.toLowerCase().includes('God is Dead') || msg.author.username !== "jkid88") {
-
+        if (!isExcludedUser || containsSpecificPhrase) {
             const emojis = ['❌', '©', '💥', '🔫'];
 
             for (const emoji of emojis) {
-                msg.react(emoji).catch(console.error);
+                msg.react(emoji).catch(err => console.error(`Failed to react: ${err}`));
             }
-            msg.reply("That's Copyrighted by Jenish")
+            msg.reply("That's Copyrighted by Jenish");
         }
     }
 });
 
-
-cln.login("BOT_TOKEN")
-
+cln.login("BOT_TOKEN");
