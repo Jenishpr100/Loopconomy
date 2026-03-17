@@ -41,6 +41,14 @@ Games:
 - Poker
 I also implemented a better kernel.
 
+> They don't work its an idea for later.
+
+## Beta 2.1 | v1.0.0-2b011
+- Added these commands:
+`/beg` - Ability to beg for money.
+`/leaderbaord` - Ability to see the top money holders.
+`/balance` - Ablility to check your balance.
+
 I'm not using UTC Time.
 
 Eden
