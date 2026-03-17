@@ -20,7 +20,7 @@ cln.on("messageCreate", (msg) => {
     const content = msg.content.toLowerCase();
 
     if (content.includes('anyways')) {
-        const isExcludedUser = msg.author.username === "lyrics_loop" || msg.author.username === "jkid88";
+        const isExcludedUser = msg.author.username === "lyrics_loop";
         const containsSpecificPhrase = content.includes('god is dead');
 
         if (!isExcludedUser || containsSpecificPhrase) {
