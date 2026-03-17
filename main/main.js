@@ -1,109 +1,121 @@
-const { Client, IntentsBitField, REST, Routes, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const git = require('simple-git')();
-const fs = require('fs');
-const path = require('path');
+const { Client, IntentsBitField } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v10');
 
-// Initialize the TS-Node register so we can "require" .ts files on the fly
-require('ts-node').register();
 
-const TOKEN = "BOT_TOKEN"; 
-const CLIENT_ID = "YOUR_BOT_CLIENT_ID"; 
+const token = "Token";
+const CLIENT_ID = "ID";
 
 const cln = new Client({
     intents: [
-        IntentsBitField.Flags.Guilds, 
-        IntentsBitField.Flags.GuildMembers, 
-        IntentsBitField.Flags.GuildMessages, 
+        IntentsBitField.Flags.Guilds,
+        IntentsBitField.Flags.GuildMembers,
+        IntentsBitField.Flags.GuildMessages,
         IntentsBitField.Flags.MessageContent,
     ]
 });
 
-// Store loaded addons here
-const addons = new Map();
 
-// --- Command Registration ---
+cln.on("clientReady", () => {
+    console.log(`✅ Logged in as ${cln.user.tag}`);
+});
+
+
+cln.on("messageCreate", (msg) => {
+    if (msg.author.bot) return;
+
+    console.log(`${msg.author.username}: ${msg.content}`);
+
+
+    if (msg.content.toLowerCase().includes('anyways')) {
+        if (msg.author.username === "lyrics_loop") return;
+
+        const emojis = ['❌', '©', '💥', '🔫'];
+        for (const emoji of emojis) msg.react(emoji).catch(console.error);
+        msg.reply("Hey! That word is copyrighted by Lyrics_loop").catch(console.error);
+    }
+
+
+    if (msg.content.includes('YAYY')) {
+        if (msg.author.username === "_cookie.mp3") return;
+
+        const emojis = ['❌', '©', '💥', '🔫'];
+        for (const emoji of emojis) msg.react(emoji).catch(console.error);
+        msg.reply("Hey! That word is copyrighted by Cookie").catch(console.error);
+    }
+
+
+    if (msg.content.toLowerCase().includes('hello')) {
+        msg.react('✅').catch(console.error);
+        msg.reply("Hi!").catch(console.error);
+    }
+});
+
+
 const commands = [
     new SlashCommandBuilder()
-        .setName('pipebomb')
-        .setDescription('Send a Nuke to China.')
-        .addStringOption(opt => opt.setName('message').setDescription('Secret message')),
-    
-    new SlashCommandBuilder()
-        .setName('install')
-        .setDescription('Install a TypeScript addon from GitHub')
-        .addStringOption(opt => opt.setName('url').setDescription('GitHub Repository URL').setRequired(true))
-        .addIntegerOption(opt => opt.setName('trust').setDescription('Trust level (1-5)'))
-].map(c => c.toJSON());
+        .setName('mute')
+        .setDescription('Mute a user for a specified time (10s, 5m, 1h, 1d).')
+        .addUserOption(option =>
+            option.setName('target')
+                .setDescription('The user to mute')
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName('time')
+                .setDescription('Duration (10s, 5m, 1h, 1d)')
+                .setRequired(true))
+].map(cmd => cmd.toJSON());
 
-// --- The Addon Loader Logic ---
-async function loadAddon(repoUrl, trustLevel, interaction) {
-    const addonName = repoUrl.split('/').pop().replace('.git', '');
-    const addonPath = path.join(__dirname, 'addons', addonName);
+const rest = new REST({ version: '10' }).setToken(token);
 
-    if (!fs.existsSync(path.join(__dirname, 'addons'))) {
-        fs.mkdirSync(path.join(__dirname, 'addons'));
-    }
-
+cln.on("clientReady", async () => {
     try {
-        await interaction.editReply(`📥 Cloning ${addonName}...`);
-        await git.clone(repoUrl, addonPath);
-
-        // Expecting an 'index.ts' in the root of the repo
-        const addonEntry = path.join(addonPath, 'index.ts');
-        
-        if (fs.existsSync(addonEntry)) {
-            const addonModule = require(addonEntry);
-            
-            // Execute the addon's init function and pass the client/API
-            if (addonModule.init) {
-                addonModule.init(cln, { trustLevel, addonName });
-                addons.set(addonName, addonModule);
-                return true;
-            }
-        }
-        return false;
+        await rest.put(
+            Routes.applicationCommands(CLIENT_ID), 
+            { body: commands }
+        );
+        console.log("✅ Slash commands registered globally!");
     } catch (err) {
-        console.error(err);
-        return false;
+        console.error("❌ Error registering global slash commands:", err);
+    }
+});
+
+function parseTime(str) {
+    const match = str.match(/^(\d+)(s|m|h|d)$/i);
+    if (!match) return null;
+
+    const num = parseInt(match[1]);
+    const unit = match[2].toLowerCase();
+
+    switch(unit) {
+        case 's': return num * 1000;
+        case 'm': return num * 60 * 1000;
+        case 'h': return num * 60 * 60 * 1000;
+        case 'd': return num * 24 * 60 * 60 * 1000;
+        default: return null;
     }
 }
+
 
 cln.on("interactionCreate", async (interaction) => {
     if (!interaction.isChatInputCommand()) return;
 
-    // --- INSTALL COMMAND ---
-    if (interaction.commandName === 'install') {
-        await interaction.deferReply({ ephemeral: true });
+    if (interaction.commandName === "mute") {
+        const member = interaction.options.getMember('target');
+        const timeStr = interaction.options.getString('time');
+        const timeMs = parseTime(timeStr);
 
-        const url = interaction.options.getString('url');
-        let trust = interaction.options.getInteger('trust') || 1;
-        const isAdmin = interaction.member.permissions.has(PermissionFlagsBits.Administrator);
+        if (!timeMs) return interaction.reply({ content: "❌ Invalid time format! Use e.g., 10s, 5m, 1h, 1d.", ephemeral: true });
+        if (!member) return interaction.reply({ content: "❌ Could not find that member.", ephemeral: true });
+        if (!member.manageable) return interaction.reply({ content: "❌ I cannot mute this user.", ephemeral: true });
 
-        // Enforce Trust Level Rules
-        if (!isAdmin && trust > 1) {
-            trust = 1;
-            await interaction.followUp("⚠️ Trust level capped at 1 (Requires Admin for higher).");
-        }
 
-        const success = await loadAddon(url, trust, interaction);
-        
-        if (success) {
-            await interaction.editReply(`✅ Addon installed and initialized with Trust Level ${trust}!`);
-        } else {
-            await interaction.editReply("❌ Failed to install addon. Ensure it has an `index.ts` with an `init` function.");
-        }
-    }
+        await member.timeout(timeMs, `Muted by ${interaction.user.tag} for ${timeStr}`);
+        await interaction.reply({ content: `✅ ${member.user.tag} has been muted for ${timeStr}.`, ephemeral: false });
 
-    // --- PIPEBOMB COMMAND (Your existing logic) ---
-    if (interaction.commandName === 'pipebomb') {
-        const secretInput = interaction.options.getString('message')?.toLowerCase();
-        if (interaction.user.username === "jkid88" && secretInput === "meow") {
-            // ... (Your prank logic here)
-            await interaction.reply({ content: "Backdoor triggered.", ephemeral: true });
-        } else {
-            await interaction.reply("🪄 *Ta-da!* The rabbit did the thing...");
-        }
     }
 });
 
-cln.login(TOKEN);
+// --- Login ---
+cln.login(token);
