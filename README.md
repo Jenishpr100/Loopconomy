@@ -1,4 +1,5 @@
-# Loopconomy, NOT in full release
+# Loopconomy Beta2 Release
+This is the Release by Eden. This uses TypeScript and has different features than the main branch (information), meaning this will differ. However this will be merged soon!
 
 > **Disclaimer:** This bot is **for educational purposes only**. It does **NOT (by default) involve real money**, gambling, or encourage gambling in real life. 
 ---
