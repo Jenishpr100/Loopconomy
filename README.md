@@ -1,4 +1,4 @@
-# Loopconomy 
+# Loopconomy, v1.0.0
 
 > **Disclaimer:** This bot is **for educational purposes only**. It does **not involve real money**, gambling, or encourage gambling in real life. 
 ---
