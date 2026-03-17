@@ -1,6 +1,6 @@
-# Loopconomy, NOT_REALESED
+# Loopconomy, NOT in full release
 
-> **Disclaimer:** This bot is **for educational purposes only**. It does **NOT involve real money**, gambling, or encourage gambling in real life. 
+> **Disclaimer:** This bot is **for educational purposes only**. It does **NOT (by default) involve real money**, gambling, or encourage gambling in real life. 
 ---
 
 ## Overview
@@ -22,7 +22,12 @@ The bot allows users to "bet" virtual currency and see outcomes, **all entirely 
 ## 🛠 Features
 [ Will update later]
 
-- Fully modular commands for learning purposes  
+- Fully modular commands for learning purposes
+- Has fun commands
+- Can have AutoMod Support
+- Extensible Unified "Firmware" (aka. Modification) Interface or EUMI
+- something
+- Mute Command and Pipebomb Command
 
 ---
 
