@@ -19,13 +19,14 @@ cln.on("messageCreate", (msg) => {
 
     if (msg.content.toLowerCase().includes('anyways')) {
 
-        if (msg.author.username !== "lyrics_loop") {
+        if (msg.author.username !== "lyrics_loop" || msg.content.toLowerCase().includes('God is Dead') || msg.author.username !== "jkid88") {
 
             const emojis = ['❌', '©', '💥', '🔫'];
 
             for (const emoji of emojis) {
                 msg.react(emoji).catch(console.error);
             }
+            msg.reply("That's Copyrighted by Jenish")
         }
     }
 });
