@@ -1,8 +1,0 @@
-{
-    "name": "Bingo",
-    "description": "Classic Bingo game",
-    "version": "1.0.0",
-    "entry": "bingo.ts",
-    "trustLevel": 2,
-    "commandList": ["bingo"]
-}

@@ -1,8 +1,0 @@
-{
-    "name": "High-Stakes Poker",
-    "description": "Multi-mode poker (NLHE, PLO, Stud) with bots",
-    "version": "1.0.0",
-    "entry": "poker.ts",
-    "trustLevel": 2,
-    "commandList": ["poker"]
-}
