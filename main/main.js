@@ -31,7 +31,7 @@ function logCommandUsage(user, commandName) {
 }
 
 const token = "BOTTOKEN";
-const CLIENT_ID = "1483310425050320917";
+const CLIENT_ID = "ID";
 
 
 const cln = new Client({
