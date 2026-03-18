@@ -39,4 +39,4 @@ MIT
 - [Add to Discord](https://discord.com/oauth2/authorize?client_id=1483538031561412620&permissions=8&scope=bot)
 
 Installation
-- [Materials needed to set up the bot](https://github.com/Jenishpr100/Loopconomy/blob/Information/main/installation)
+- [Materials needed to set up the bot](https://github.com/Jenishpr100/Loopconomy/blob/Information/main/installation.md)
