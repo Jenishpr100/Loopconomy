@@ -1,11 +1,36 @@
+// ✅ imports first
 const path = require('path');
 const fs = require('fs');
 const { Client, IntentsBitField, Collection } = require('discord.js');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v10');
 
+// then your log file
+const logPath = path.join(__dirname, 'commandLogs.json');
 
-const token = "Token";
+// logger function
+function logCommandUsage(user, commandName) {
+    let data = [];
+
+    if (!fs.existsSync(logPath)) fs.writeFileSync(logPath, '[]');
+
+    try {
+        data = JSON.parse(fs.readFileSync(logPath));
+    } catch {
+        data = [];
+    }
+
+    data.push({
+        username: user.tag,
+        userId: user.id,
+        command: commandName,
+        time: new Date().toISOString()
+    });
+
+    fs.writeFileSync(logPath, JSON.stringify(data, null, 2));
+}
+
+const token = "BOTTOKEN";
 const CLIENT_ID = "1483310425050320917";
 
 
@@ -83,6 +108,9 @@ cln.on("interactionCreate", async (interaction) => {
 
     try {
         await command.execute(interaction);
+
+// 🔥 LOG COMMAND USAGE
+logCommandUsage(interaction.user, interaction.commandName);
     } catch (err) {
         console.error(err);
         interaction.reply({ content: "❌ Error executing command.", ephemeral: true });
