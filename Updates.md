@@ -50,6 +50,8 @@ Added these commands:
 - `/balance` - Ablility to check your balance.
 - `/work` - Does work for money | Cooldown, 12hrs
 - `/daily` - Daily money
+- `/pay` – Pay another user coins (10% tax if over $100)
+- `/coinflip [user]` - Bet an amount with any user
 
 > Added place for /gamble commads, will update later.
 
