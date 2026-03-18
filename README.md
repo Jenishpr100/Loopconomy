@@ -1,56 +1,154 @@
-# Loopconomy, NOT in full release
+# Loopconomy
 
-> **Disclaimer:** This bot is **for educational purposes only**. It does **NOT (by default) involve real money**, gambling, or encourage gambling in real life. 
+> **Disclaimer:** This bot is **for educational purposes only**. It does **NOT (by default) involve real money**, gambling, or encourage gambling in real life.
+
 ---
 
-## Overview
+## 📖 Overview
 
-This is a fake gambling bot built with **JavaScript** and **Python** to help practice:
+A modular Discord bot with gambling games, economy, AutoMod, and more. Built with JavaScript/TypeScript and Discord.js.
 
-- JavaScript logic and syntax
-- Random number generation
-- Working with arrays and objects
-- Command handling for a bot
-- Simulated “economy” systems
-
-The bot allows users to "bet" virtual currency and see outcomes, **all entirely fake**. Perfect for experimenting without real-world risks.
-
-[Main website page](https://jenishpr100.github.io/Loopconomy/main/MainPage)
+[Main website](https://jenishpr100.github.io/Loopconomy/main/MainPage)
 
 ---
 
 ## 🛠 Features
-[ Will update later]
 
-- Fully modular commands for learning purposes
-- Has fun commands
-- Can have AutoMod Support
-- Extensible Unified "Firmware" (aka. Modification) Interface or EUMI
-- something
-- Mute Command and Pipebomb Command
-
----
-
-## 🧩 Games!
-
-- Coin Flip
-- Mega Slots
-- Blackjack
-- Poker
-
-Todo: 
-- Keno
-- Roulette
-- Baccarat
-- Craps
-- Bingo
-- Scratch Cards (maybe in person with a Code for the HTML Site that then somehow redeems it?)
-- Wheel of Fortune?
-- Russian Roulette (but you get muted for n time)
-- Snake.
-- Rugplay Integration and Rugplay Plus Integration! (somehow using the SDK?)
+- **🎮 Games** - Blackjack, Poker, Slots, Keno, Roulette, Bingo, Wheel of Fortune, Russian Roulette
+- **💰 Economy** - Daily rewards, beg, pay, leaderboards
+- **🛡️ AutoMod** - Spam, link, caps, and word filtering
+- **📝 Copyright Management** - Track copyrighted content
+- **⚙️ Modular Addon System** - Trust levels (1-5) for security
+- **🎛️ Bot Management** - Status, logs, restart, shutdown, backup
 
 ---
 
-## 💻 Installation
-- [Server install link](https://discord.com/oauth2/authorize?client_id=1483310425050320917&permissions=0&integration_type=0&scope=bot+applications.commands)
+## 🧩 Games
+
+| Game | Command | Description |
+|------|---------|-------------|
+| Blackjack | `/blackjack` | Classic card game |
+| Poker | `/poker` | Multi-mode Texas Hold'em |
+| Slots | `/slots` | Slot machine |
+| Keno | `/keno` | Pick numbers and win |
+| Roulette | `/roulette` | European roulette |
+| Bingo | `/bingo` | Get 3 lines to win |
+| Wheel | `/wheel` | Spin the wheel! |
+| Russian Roulette | `/russianroulette` | High stakes - loser gets muted |
+
+---
+
+## 🚀 Quick Install
+
+### Prerequisites
+
+```bash
+# Ubuntu/Debian
+sudo apt-get update && sudo apt-get install -y nodejs npm postgresql git
+
+# Arch Linux
+sudo pacman -Syu --noconfirm nodejs npm postgresql git
+```
+
+### Setup
+
+```bash
+# Clone the repo
+git clone https://github.com/Jenishpr100/Loopconomy.git
+cd Loopconomy/main
+
+# Create environment file
+cp .env.example .env
+# Edit .env with your credentials:
+#   BOT_TOKEN=your_bot_token
+#   CLIENT_ID=your_client_id
+#   DATABASE_URL=postgres://user:pass@localhost/db
+#   TAX_COLLECTOR_ID=your_user_id
+
+# Install dependencies
+npm install
+
+# Run the TUI installer
+cd scripts
+chmod +x install.sh
+./install.sh
+```
+
+### Manual Run
+
+```bash
+cd Loopconomy/main
+node main.js
+```
+
+---
+
+## 📝 Configuration (.env)
+
+Create a `.env` file in `main/`:
+
+```env
+BOT_TOKEN=your_discord_bot_token
+CLIENT_ID=your_application_client_id
+DATABASE_URL=postgres://username:password@localhost:5432/database_name
+TAX_COLLECTOR_ID=optional_user_id_for_taxes
+```
+
+---
+
+## 🤖 Commands
+
+### Core
+- `/balance` - Check your coins
+- `/beg` - Beg for coins
+- `/pay` - Pay coins to another user
+- `/leaderboard` - Top players
+- `/help` - Show all commands
+- `/about` - About this bot
+
+### Games
+- `/daily` - Claim daily reward
+- `/coinflip` - Flip a coin
+- `/slots` - Play slots
+- `/keno` - Play Keno
+- `/roulette` - Play Roulette
+- `/bingo` - Play Bingo
+- `/wheel` - Spin the wheel
+- `/blackjack` - Play Blackjack
+- `/poker` - Play Poker
+
+### Moderation
+- `/mute` - Mute a user
+- `/automod` - Configure AutoMod
+- `/copyright` - Manage copyrighted content
+
+### Management (Owner only)
+- `/botstatus` - Bot status
+- `/botlogs` - View logs
+- `/botrestart` - Restart bot
+- `/botshutdown` - Shutdown bot
+- `/botbackup` - Backup database
+
+---
+
+## 🔧 AutoMod Setup
+
+```bash
+/automod enable          # Enable AutoMod
+/automod spam enable    # Enable spam filter
+/automod links enable   # Block links
+/automod caps enable    # Block excessive caps
+/automod wordlist add badword  # Add word to filter
+```
+
+---
+
+## 📜 License
+
+MIT
+
+---
+
+## 🔗 Invite
+
+[Add to Discord](https://discord.com/oauth2/authorize?client_id=1483538031561412620&permissions=8&scope=bot)
