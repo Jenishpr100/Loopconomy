@@ -27,3 +27,5 @@ Thumbs.db
 # Runtime
 notes/
 bot.pid
+main/copyright.json
+main/automod.json
