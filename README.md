@@ -15,9 +15,8 @@ A modular Discord bot with gambling games, economy, AutoMod, and more. Built wit
 
 ## 🛠 Features
 
-- **🎮 Games** - Blackjack, Poker, Slots, Keno, Roulette, Bingo, Wheel of Fortune, Russian Roulette
+- **🎮 Games** - Coinflip, comming soon...
 - **💰 Economy** - Daily rewards, beg, pay, leaderboards
-- **⚙️ Modular Addon System** - Trust levels (1-5) for security
 
 ---
 
