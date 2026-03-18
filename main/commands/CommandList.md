@@ -4,13 +4,19 @@
 - `/about` - The README section in GitHUb
 
 ## Economy
-- `/beg` – Beg for money
+
+Casual:
 - `/pay` – Pay another user coins (10% tax if over $100)
-- `/balance [user]` – Check your or another user’s balance
 - `/leaderboard` – View the richest user
-- `/coinflip [user]` - Bet an amount with any user
+- `/balance [user]` – Check your or another user’s balance
+
+Earning: 
+- `/beg` – Beg for money
 - `/work` - Does wrok for money | Cooldown, 12hrs
 - `/daily` - Daily money
+
+Games:
+- `/coinflip [user]` - Bet an amount with any user
 
 ## Moderation
 - `/mute [user][time]` – Mute a user
