@@ -56,3 +56,7 @@ Added these commands:
 > Added place for /gamble commads, will update later.
 
 ---
+
+## Beta 1.4 | v1.0.0-5b
+
+- Added logging and bug fixes
