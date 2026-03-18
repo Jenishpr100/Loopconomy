@@ -42,12 +42,21 @@ A modular Discord bot with gambling games, economy, AutoMod, and more. Built wit
 
 ### Prerequisites
 
+**Ubuntu/Debian:**
 ```bash
-# Ubuntu/Debian
 sudo apt-get update && sudo apt-get install -y nodejs npm postgresql git
+```
 
-# Arch Linux
+**Arch Linux:**
+```bash
 sudo pacman -Syu --noconfirm nodejs npm postgresql git
+```
+
+**Windows:**
+```powershell
+# Install Node.js from https://nodejs.org (LTS version)
+# Install PostgreSQL from https://www.postgresql.org/download/windows/
+# Install Git from https://git-scm.com
 ```
 
 ### Setup
@@ -72,6 +81,23 @@ npm install
 cd scripts
 chmod +x install.sh
 ./install.sh
+```
+
+**Windows (PowerShell):**
+```powershell
+# Clone the repo
+git clone https://github.com/Jenishpr100/Loopconomy.git
+cd Loopconomy/main
+
+# Create environment file
+Copy-Item .env.example .env
+# Edit .env with your credentials in Notepad
+
+# Install dependencies
+npm install
+
+# Run the bot
+node main.js
 ```
 
 ### Manual Run
