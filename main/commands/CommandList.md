@@ -12,7 +12,7 @@ Casual:
 
 Earning: 
 - `/beg` – Beg for money
-- `/work` - Does wrok for money | Cooldown, 12hrs
+- `/work` - Does work for money | Cooldown, 12hrs
 - `/daily` - Daily money
 
 Games:
