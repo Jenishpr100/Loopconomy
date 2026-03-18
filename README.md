@@ -23,6 +23,7 @@ A modular Discord bot with gambling games, economy, AutoMod, and more. Built wit
 ## 🤖 Commands
 
 - [List of commands](https://github.com/Jenishpr100/Loopconomy/blob/Information/main/commands/CommandList.md)
+- Or if you're in discord, use `/help`
 
 
 
