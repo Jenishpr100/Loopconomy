@@ -1,4 +1,4 @@
-# Things needs to set up the code for the bot
+# Things needs to set up the code for the bot | v1.0.0-5b
 > You may need to put "sudo" before the command if you're on Mac or Linux
 
  ## PowerShell
