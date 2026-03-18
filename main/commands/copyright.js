@@ -4,16 +4,10 @@ module.exports = {
 
         const triggers = [
             {
-                word: 'anyways',
-                owner: 'Lyrics_loop',
-                ignoreUser: 'lyrics_loop',
+                word: 'example',
+                owner: 'any name',
+                ignoreUser: 'discord username',
                 type: 'loose' // any form
-            },
-            {
-                word: 'YAYY',
-                owner: 'Cookie',
-                ignoreUser: '_cookie.mp3',
-                type: 'strict' // exact match only
             }
         ];
 
@@ -39,5 +33,6 @@ module.exports = {
 
             await msg.reply(`Hey! This word is copyrighted by ${t.owner}`).catch(() => {});
         }
+
     }
 };
