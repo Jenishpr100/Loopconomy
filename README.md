@@ -96,8 +96,11 @@ Copy-Item .env.example .env
 # Install dependencies
 npm install
 
-# Run the bot
-node main.js
+# Run the TUI installer (as Administrator)
+.\scripts\install.ps1
+
+# Or use the management menu
+.\scripts\manage.ps1
 ```
 
 ### Manual Run
