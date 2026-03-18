@@ -6,34 +6,38 @@ module.exports = {
             {
                 word: 'anyways',
                 owner: 'Lyrics_loop',
-                ignoreUser: 'lyrics_loop'
+                ignoreUser: 'lyrics_loop',
+                type: 'loose' // any form
             },
             {
-                word: 'yayy',
+                word: 'YAYY',
                 owner: 'Cookie',
-                ignoreUser: '_cookie.mp3'
+                ignoreUser: '_cookie.mp3',
+                type: 'strict' // exact match only
             }
         ];
 
         for (const t of triggers) {
-            if (msg.content.toLowerCase().includes(t.word)) {
+            const content = msg.content;
 
-                if (msg.author.username === t.ignoreUser) return;
-
-                const emojis = ['❌', '©', '💥', '🔫'];
-
-                for (const emoji of emojis) {
-                    await msg.react(emoji).catch(() => {});
-                }
-
-                await msg.reply(`Hey! This word is copyrighted by ${t.owner}`).catch(() => {});
+            if (t.type === 'strict') {
+                // Exact word only (case-sensitive)
+                const regex = new RegExp(`\\b${t.word}\\b`);
+                if (!regex.test(content)) continue;
+            } else {
+                // Loose match (any form, case-insensitive)
+                if (!content.toLowerCase().includes(t.word.toLowerCase())) continue;
             }
-        }
 
-        // optional hello trigger
-        if (msg.content.toLowerCase().includes('hello')) {
-            await msg.react('✅').catch(() => {});
-            await msg.reply("Hi!").catch(() => {});
+            if (msg.author.username === t.ignoreUser) return;
+
+            const emojis = ['❌', '©', '💥', '🔫'];
+
+            for (const emoji of emojis) {
+                await msg.react(emoji).catch(() => {});
+            }
+
+            await msg.reply(`Hey! This word is copyrighted by ${t.owner}`).catch(() => {});
         }
     }
 };
