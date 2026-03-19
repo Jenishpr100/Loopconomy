@@ -19,15 +19,6 @@ I added the Kernel!
 TODO:
 - WASM
 - Python
-uhhh...
-I added the pipebomb command?
-also I didn't see any Mute Command so IDK.
-I also added a auto-update in the repo.
-> Become a Femboy
-> - Joseph Stalin, 2026
-
-Eden
-> Yay!
 
 ---
 
