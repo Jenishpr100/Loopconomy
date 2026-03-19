@@ -18,7 +18,7 @@ Earning:
 Games:
 - `/coinflip [user]` - Bet an amount with any user
 - `/robbank` - Allows you to rob bank, cooldown 1hr
-`/tower [amount]` - Does not function as of right now
+- `/tower [amount]` - Does not function as of right now
 
 ## Moderation
 - `/mute [user][time]` – Mute a user
