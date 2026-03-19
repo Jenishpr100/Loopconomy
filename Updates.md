@@ -60,3 +60,5 @@ Added these commands:
 ## Beta 1.4 | v1.0.0-5b
 
 - Added logging and bug fixes
+- Added `/robbank` - Allows you to rob bank, cooldown 1hr
+- Added `/tower [amount]` - Does not function as of right now
