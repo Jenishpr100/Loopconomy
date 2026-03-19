@@ -31,7 +31,7 @@ Eden
 
 ---
 
-# Beta 1.2 | v1.0.0-3b
+## Beta 1.2 | v1.0.0-3b
 We finally have games lol.
 I did most of the work.
 Games:
