@@ -1,4 +1,4 @@
-# List of Commands | v1.0.0-5b
+# List of Commands | v1.0.0-6b
 
 - `/help` - This list
 - `/about` - The README section in GitHUb
