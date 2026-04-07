@@ -2,6 +2,7 @@
 
 - `/help` - This list
 - `/about` - The README section in GitHUb
+-  `/updates` - See what version the bot is
 
 ## Economy
 
