@@ -53,3 +53,13 @@ Added these commands:
 - Added logging and bug fixes
 - Added `/robbank` - Allows you to rob bank, cooldown 1hr
 - Added `/tower [amount]` - Does not function as of right now
+
+---
+
+## Beta 1.5 | v1.0.0-6b
+
+- Added a copyright folder consisting of:
+     - `/copyrightlist` - Shows the list of copyright
+     - `/copyright` - Ability to copyright a word - Limited to guild
+- Made the copyright save violation and deduct money from users - Still in teting mode, may not function
+- Updated `mute.js` and added `unmute.js` with the command: `/unmute[user][time][reason]` - Unmutes a user in timeout.
