@@ -15,10 +15,16 @@ Earning:
 - `/work` - Does work for money | Cooldown, 12hrs
 - `/daily` - Daily money
 
+Copyright:
+
+- `/copyrightlist` - Shows the list of copyright
+- `/copyright` - Ability to copyright a word - Limited to guild
+
 Games:
-- `/coinflip [user]` - Bet an amount with any user
+- `/coinflip [user][amount]` - Bet an amount with any user
 - `/robbank` - Allows you to rob bank, cooldown 1hr
 - `/tower [amount]` - Does not function as of right now
 
 ## Moderation
-- `/mute [user][time]` – Mute a user
+- `/mute [user][time][reason]` – Mute a user
+- `/unmute [user][time][reason]` - Unmutes a user in timeout
