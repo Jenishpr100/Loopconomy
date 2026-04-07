@@ -31,7 +31,6 @@ nodemon src/main.js
     - main.js
     - commands\
       - about.js
-      - copyright.js
       - help.js
       - mute.js
       - gambling\
@@ -42,7 +41,13 @@ nodemon src/main.js
         - leaderboard.js
         - pay.js
         - work.js
-        - data.json
+        - data.json  
+      - copyright\
+         - copyright list.js
+         - copyright.js
+         - data.json
+         - handler.js
+         - violation.json
        
 ## ⚙️ Code Configuration Instructions
 
