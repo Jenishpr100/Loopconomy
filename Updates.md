@@ -63,3 +63,4 @@ Added these commands:
      - `/copyright` - Ability to copyright a word - Limited to guild
 - Made the copyright save violation and deduct money from users - Still in teting mode, may not function
 - Updated `mute.js` and added `unmute.js` with the command: `/unmute[user][time][reason]` - Unmutes a user in timeout.
+- Added a `/updates` command for seeing what the latest verison of the bot is.
